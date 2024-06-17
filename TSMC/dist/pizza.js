@@ -17,8 +17,16 @@ class Pizza {
     }
 }
 let pizza = new Pizza('New York', 14.99);
+let pizzaTwo = new Pizza('Margarita', 12.99);
 pizza.changeBase('garlic');
 pizza.addTopping('olives');
 pizza.addTopping('peppers');
 pizza.removeTopping('olives');
 console.log(pizza);
+const addMushroomsToPizzas = (pizzas) => {
+    for (const p of pizzas) {
+        p.addTopping('mushrooms');
+    }
+};
+addMushroomsToPizzas([pizza, pizzaTwo]);
+console.log(pizza, pizzaTwo);
