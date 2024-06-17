@@ -1,7 +1,14 @@
 type Base = 'classic' | 'tick' | 'thin' | 'garlic'
 
-class Pizza {
+class MenuItem {
     constructor(private name: string, private price: number) { }
+
+    details(): string {
+        return `${this.name} - ${this.price}`
+    }
+}
+
+class Pizza extends MenuItem {
 
     private base: Base = 'classic'
     private toppings: string[] = []
@@ -16,6 +23,10 @@ class Pizza {
 
     changeBase(base: Base): void {
         this.base = base
+    }
+
+    get toppingList(): string {
+        return this.toppings.join(', ')
     }
 }
 
@@ -36,5 +47,13 @@ const addMushroomsToPizzas = (pizzas: Pizza[]) => {
 }
 
 addMushroomsToPizzas([pizza, pizzaTwo])
+
 console.log(pizza, pizzaTwo);
+console.log(pizza.toppingList);
+
+
+const printDetails = (item: MenuItem) => {
+    console.log(item.details());
+}
+printDetails(pizzaTwo)
 

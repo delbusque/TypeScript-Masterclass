@@ -1,8 +1,16 @@
 "use strict";
-class Pizza {
+class MenuItem {
     constructor(name, price) {
         this.name = name;
         this.price = price;
+    }
+    details() {
+        return `${this.name} - ${this.price}`;
+    }
+}
+class Pizza extends MenuItem {
+    constructor() {
+        super(...arguments);
         this.base = 'classic';
         this.toppings = [];
     }
@@ -14,6 +22,9 @@ class Pizza {
     }
     changeBase(base) {
         this.base = base;
+    }
+    get toppingList() {
+        return this.toppings.join(', ');
     }
 }
 let pizza = new Pizza('New York', 14.99);
@@ -30,3 +41,8 @@ const addMushroomsToPizzas = (pizzas) => {
 };
 addMushroomsToPizzas([pizza, pizzaTwo]);
 console.log(pizza, pizzaTwo);
+console.log(pizza.toppingList);
+const printDetails = (item) => {
+    console.log(item.details());
+};
+printDetails(pizzaTwo);
