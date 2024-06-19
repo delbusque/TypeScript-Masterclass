@@ -7,6 +7,9 @@ class MenuItem {
     details() {
         return `${this.name} - ${this.price}`;
     }
+    format() {
+        return `Menu item called ${this.name} and is $ ${this.price}`;
+    }
 }
 class Pizza extends MenuItem {
     constructor() {
@@ -46,3 +49,4 @@ const printDetails = (item) => {
     console.log(item.details());
 };
 printDetails(pizzaTwo);
+console.log(pizza.format());

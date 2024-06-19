@@ -1,10 +1,18 @@
 type Base = 'classic' | 'tick' | 'thin' | 'garlic'
 
-class MenuItem {
+interface hasFormater {
+    format(): string
+}
+
+class MenuItem implements hasFormater {
     constructor(private name: string, private price: number) { }
 
     details(): string {
         return `${this.name} - ${this.price}`
+    }
+
+    format(): string {
+        return `Menu item called ${this.name} and is $ ${this.price}`
     }
 }
 
@@ -57,3 +65,4 @@ const printDetails = (item: MenuItem) => {
 }
 printDetails(pizzaTwo)
 
+console.log(pizza.format());
