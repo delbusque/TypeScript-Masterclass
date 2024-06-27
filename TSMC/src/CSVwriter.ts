@@ -1,10 +1,10 @@
-type PaymentColumns = ('id' | 'about' | 'to' | 'ammount')[]
+type PaymentColumns = ('id' | 'about' | 'to' | 'amount')[]
 
 interface Payment {
     id: string | number,
     about: string,
     to: string,
-    ammount: number
+    amount: number
 }
 
 class CSVWriter {
@@ -26,9 +26,9 @@ class CSVWriter {
     }
 }
 
-const writer = new CSVWriter(['id', 'ammount', 'to', 'about'])
+const writer = new CSVWriter(['id', 'amount', 'to', 'about'])
 
 writer.addRows([
-    { id: 1, ammount: 50, to: 'me', about: 'for design work' },
-    { id: 2, ammount: 150, to: 'you', about: 'for build work' },
+    { id: 1, amount: 50, to: 'me', about: 'for design work' },
+    { id: 2, amount: 150, to: 'you', about: 'for build work' },
 ])
